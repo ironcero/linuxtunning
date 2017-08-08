@@ -4,7 +4,6 @@ echo "########### Base Tunning Script #################"
 echo "#################################################"
 
 TEMPORAL_APP_FOLDER=/tmp/appTemporalFolder
-INSTALLED_SUCCESS_TEXT="install ok installed"
 
 apt-get update
 apt-get -y upgrade
@@ -18,8 +17,6 @@ else
     echo "$TEMPORAL_APP_FOLDER was created"
 fi
 
-
-
-wget X
 sh vscode.sh
 sh vim.sh
+sh rabbitvcs.sh
