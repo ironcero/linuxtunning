@@ -11,6 +11,7 @@ apt-get update
 apt-get -y upgrade
 
 wget -O git.sh $DIRECT_MASTER_DOWNLOAD_URL/git.sh
+wget -O properties.sh $DIRECT_MASTER_DOWNLOAD_URL/properties.sh
 if [ -f git.sh ]; then
     sh git.sh
 else
