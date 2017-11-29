@@ -1,5 +1,5 @@
 #! /bin/sh
-
+INSTALLED_SUCCESS_TEXT="install ok installed"
 #Vim
 echo "Checking if Git is installed..."
 if [ -z `dpkg -s git | grep $INSTALLED_SUCCESS_TEXT` ]; then
