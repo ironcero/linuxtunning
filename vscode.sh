@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 #VS CODE
 VSCODE_APP_FILE="vscode.deb"
