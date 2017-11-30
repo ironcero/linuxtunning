@@ -5,7 +5,7 @@ echo "#################################################"
 
 INSTALLED_SUCCESS_TEXT="install ok installed"
 BASE_RESPOSITORY=https://github.com/ironcero/linuxtunning
-DIRECT_MASTER_DOWNLOAD_URL=$BASE_RESPOSITORY/blob/master
+DIRECT_MASTER_DOWNLOAD_URL=$BASE_RESPOSITORY/raw/master
 
 apt-get update
 apt-get -y upgrade
