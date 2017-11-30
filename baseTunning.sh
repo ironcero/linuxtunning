@@ -3,13 +3,18 @@ echo "#################################################"
 echo "########### Base Tunning Script #################"
 echo "#################################################"
 
-sh properties.sh
+INSTALLED_SUCCESS_TEXT="install ok installed"
+BASE_RESPOSITORY=https://github.com/ironcero/linuxtunning
+DIRECT_MASTER_DOWNLOAD_URL=$BASE_RESPOSITORY/blob/master
 
 apt-get update
 apt-get -y upgrade
 
 wget -O git.sh $DIRECT_MASTER_DOWNLOAD_URL/git.sh
 wget -O properties.sh $DIRECT_MASTER_DOWNLOAD_URL/properties.sh
+
+sh properties.sh
+
 if [ -f git.sh ]; then
     sh git.sh
 else
