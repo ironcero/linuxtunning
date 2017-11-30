@@ -2,9 +2,11 @@
 
 #Vim
 echo "Checking if Git is installed..."
-if [ -z `dpkg -s git | grep "$INSTALLED_SUCCESS_TEXT"` ]; then
+git_installed=`dpkg -s git | grep "$INSTALLED_SUCCESS_TEXT"`
+if [ -z "$git_installed" ]; then
     apt-get install -y git
-    if [ -z `dpkg -s git | grep "$INSTALLED_SUCCESS_TEXT"` ]; then
+    git_installed=`dpkg -s git | grep "$INSTALLED_SUCCESS_TEXT"`
+    if [ -z "$git_installed" ]; then
         echo "Git failed to install"
         exit 1
     else
