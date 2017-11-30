@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 #RabbitVCS-cli
 echo "Checking if RabbitVCS-cli is installed..."
