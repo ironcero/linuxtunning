@@ -11,8 +11,8 @@ if [ -z "$git_installed" ]; then
         exit 1
     else
         echo "Git success to install"
-        git clone $BASE_RESPOSITORY.git
     fi
 else
     echo "Git is already installed"
 fi
+git clone $BASE_RESPOSITORY.git
