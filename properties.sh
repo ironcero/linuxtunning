@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 
-INSTALLED_SUCCESS_TEXT="install ok installed"
-BASE_RESPOSITORY=https://github.com/ironcero/linuxtunning
-DIRECT_MASTER_DOWNLOAD_URL=$BASE_RESPOSITORY/blob/master
+export INSTALLED_SUCCESS_TEXT="install ok installed"
+export BASE_RESPOSITORY=https://github.com/ironcero/linuxtunning
+export DIRECT_MASTER_DOWNLOAD_URL=$BASE_RESPOSITORY/blob/master
