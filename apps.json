@@ -1,0 +1,57 @@
+[
+  {
+    "software": "snapd",
+    "type": "default",
+    "pre_commands": null,
+    "post_commands": [["ln", "-s", "/var/lib/snapd/snap", "/snap"]],
+    "url": null,
+    "extra_argument": null
+  }, {
+    "software": "git",
+    "type": "default",
+    "pre_commands": null,
+    "post_commands": null,
+    "url": null,
+    "extra_argument": null
+  }, {
+    "software": "pycharm-community",
+    "type": "snap",
+    "pre_commands": null,
+    "post_commands": null,
+    "url": null,
+    "extra_argument": "--classic"
+  }, {
+    "software": "rabbitvcs-cli",
+    "type": "default",
+    "pre_commands": null,
+    "post_commands": null,
+    "url": null,
+    "extra_argument": null
+  }, {
+    "software": "rabbitvcs-nautilus",
+    "type": "default",
+    "pre_commands": null,
+    "post_commands": null,
+    "url": null,
+    "extra_argument": null
+  }, {
+    "software": "vim",
+    "type": "default",
+    "pre_commands": null,
+    "post_commands": null,
+    "url": null,
+    "extra_argument": null
+  }, {
+    "software": "code",
+    "type": "default",
+    "pre_commands": [
+      ["rpm", "--import", "https://packages.microsoft.com/keys/microsoft.asc"],
+      ["cp", "vscode.repo", "/etc/yum.repos.d/vscode.repo"],
+      ["dnf", "check-update"]
+    ],
+    "post_commands": null,
+    "url": null,
+    "extra_argument": null
+  }
+  
+]
