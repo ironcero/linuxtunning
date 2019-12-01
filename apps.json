@@ -158,5 +158,14 @@
     "extra_pre_argument": null,
     "extra_post_argument": "--allowerasing",
     "install_group": true
+  },{
+    "software": "pantheon desktop",
+    "type": "default",
+    "pre_commands": null,
+    "post_commands": null,
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": "--skip-broken",
+    "install_group": true
   }
 ]
