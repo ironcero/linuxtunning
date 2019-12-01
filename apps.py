@@ -10,6 +10,7 @@ check_installer_arg_install = "-i"
 
 installer = "dnf"
 installer_arg_install = "install"
+installer_arg_group_install = "groupinstall"
 installer_arg_update = "update"
 installer_arg_upgrade = "upgrade"
 installer_arg_forced_install = "-y"
@@ -30,12 +31,18 @@ downloader_arg_quit = "-q"
 
 installer_text = "Status: install ok installed"
 
-def install_software(software, pre_commands, post_commands, software_extra_pre_argument, software_extra_post_argument):
+def install_software(software, pre_commands, post_commands, software_extra_pre_argument, software_extra_post_argument, install_group):
     software_status = subprocess.call([check_installer, check_installer_arg_check, software], stdout=f_null,
                                       stderr=subprocess.STDOUT)
     if not software_status:
         print(software + " allready installed")
     else:
+        installer_install = ""
+        if install_group:
+            installer_install = installer_arg_group_install
+        else:
+            installer_install = installer_arg_install
+
         if pre_commands:
             for pre_command in pre_commands:
                 error_extra_command = subprocess.call(pre_command, stdout=f_null, stderr=subprocess.STDOUT)
@@ -45,21 +52,22 @@ def install_software(software, pre_commands, post_commands, software_extra_pre_a
                     print("Error found on " + software + ": " + str(error_extra_command))
                     return 1
 
-        if software_extra_post_argument is None and software_extra_pre_argument is None:
-            install_status = subprocess.call([installer, installer_arg_install, software])
-        elif software_extra_post_argument is None:
-            install_status = subprocess.call(
-                [installer, installer_arg_install, software_extra_pre_argument, software])
-        elif software_extra_pre_argument is None:
-            install_status = subprocess.call(
-                [installer, installer_arg_install, software, software_extra_post_argument])
-        else:
-            install_status = subprocess.call(
-                [installer, installer_arg_install, software_extra_pre_argument, software,
-                 software_extra_post_argument])
+        if install_group:
+            if software_extra_post_argument is None and software_extra_pre_argument is None:
+                install_status = subprocess.call([installer, installer_install, software])
+            elif software_extra_post_argument is None:
+                install_status = subprocess.call(
+                    [installer, installer_install, software_extra_pre_argument, software])
+            elif software_extra_pre_argument is None:
+                install_status = subprocess.call(
+                    [installer, installer_install, software, software_extra_post_argument])
+            else:
+                install_status = subprocess.call(
+                    [installer, installer_install, software_extra_pre_argument, software,
+                     software_extra_post_argument])
 
-        software_status = subprocess.call([check_installer, check_installer_arg_check, software], stdout=f_null,
-                                          stderr=subprocess.STDOUT)
+            software_status = subprocess.call([check_installer, check_installer_arg_check, software], stdout=f_null,
+                                              stderr=subprocess.STDOUT)
 
         if post_commands:
             for post_command in post_commands:
@@ -222,7 +230,7 @@ def upgrade_software():
     return subprocess.call([installer, installer_arg_upgrade, installer_arg_forced_install])
 
 
-def install(software_installation_type, software, pre_commands, post_commands, software_url, software_extra_pre_argument, software_extra_post_argument):
+def install(software_installation_type, software, pre_commands, post_commands, software_url, software_extra_pre_argument, software_extra_post_argument, install_group):
     result = 0
     print("Installing " + software + " over " + software_installation_type)
     if software_installation_type == 'manual':
@@ -232,7 +240,7 @@ def install(software_installation_type, software, pre_commands, post_commands, s
     elif software_installation_type == 'yum':
         result = install_software_yum(software, pre_commands, post_commands, software_extra_pre_argument, software_extra_post_argument)
     else:
-        result = install_software(software, pre_commands, post_commands, software_extra_pre_argument, software_extra_post_argument)
+        result = install_software(software, pre_commands, post_commands, software_extra_pre_argument, software_extra_post_argument, install_group)
     return result
 
 
@@ -260,7 +268,8 @@ def install_apps():
         url = app["url"]
         extra_pre_argument = app["extra_pre_argument"]
         extra_post_argument = app["extra_post_argument"]
-        install(type_installation, software, pre_commands, post_commands, url, extra_pre_argument, extra_post_argument)
+        install_group = app["install_group"]
+        install(type_installation, software, pre_commands, post_commands, url, extra_pre_argument, extra_post_argument, install_group)
 
 
 install_apps()

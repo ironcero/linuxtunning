@@ -6,7 +6,8 @@
     "post_commands": [["ln", "-s", "/var/lib/snapd/snap", "/snap"]],
     "url": null,
     "extra_pre_argument": null,
-    "extra_post_argument": null
+    "extra_post_argument": null,
+    "install_group": false
   }, {
     "software": "git",
     "type": "default",
@@ -14,7 +15,8 @@
     "post_commands": null,
     "url": null,
     "extra_pre_argument": null,
-    "extra_post_argument": null
+    "extra_post_argument": null,
+    "install_group": false
   }, {
     "software": "pycharm-community",
     "type": "snap",
@@ -22,7 +24,8 @@
     "post_commands": null,
     "url": null,
     "extra_pre_argument": "--classic",
-    "extra_post_argument": null
+    "extra_post_argument": null,
+    "install_group": false
 }, {
     "software": "rabbitvcs-cli",
     "type": "default",
@@ -30,7 +33,8 @@
     "post_commands": null,
     "url": null,
     "extra_pre_argument": null,
-    "extra_post_argument": null
+    "extra_post_argument": null,
+    "install_group": false
   }, {
     "software": "rabbitvcs-nautilus",
     "type": "default",
@@ -38,7 +42,8 @@
     "post_commands": null,
     "url": null,
     "extra_pre_argument": null,
-    "extra_post_argument": null
+    "extra_post_argument": null,
+    "install_group": false
   }, {
     "software": "vim",
     "type": "default",
@@ -46,7 +51,8 @@
     "post_commands": null,
     "url": null,
     "extra_pre_argument": null,
-    "extra_post_argument": null
+    "extra_post_argument": null,
+    "install_group": false
   },
   {
     "software": "code",
@@ -70,7 +76,8 @@
     "post_commands": null,
     "url": null,
     "extra_pre_argument": null,
-    "extra_post_argument": null
+    "extra_post_argument": null,
+    "install_group": false
   }, {
     "software": "google-chrome-stable",
     "type": "default",
@@ -91,7 +98,8 @@
     "post_commands": null,
     "url": null,
     "extra_pre_argument": null,
-    "extra_post_argument": null
+    "extra_post_argument": null,
+    "install_group": false
   }, {
     "software": "/tmp/gitkraken-amd64.rpm",
     "type": "yum",
@@ -112,7 +120,8 @@
     ],
     "url": null,
     "extra_pre_argument": null,
-    "extra_post_argument": null
+    "extra_post_argument": null,
+    "install_group": false
   }, {
     "software": "teams-for-linux",
     "type": "snap",
@@ -120,7 +129,34 @@
     "post_commands": null,
     "url": null,
     "extra_pre_argument": null,
-    "extra_post_argument": null
+    "extra_post_argument": null,
+    "install_group": false
+  }, {
+    "software": "onenote-desktop",
+    "type": "snap",
+    "pre_commands": null,
+    "post_commands": null,
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": "--beta",
+    "install_group": false
+  },{
+    "software": "mate-desktop",
+    "type": "default",
+    "pre_commands": null,
+    "post_commands": null,
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": "--allowerasing",
+    "install_group": true
+  },{
+    "software": "mate-applications",
+    "type": "default",
+    "pre_commands": null,
+    "post_commands": null,
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": "--allowerasing",
+    "install_group": true
   }
-  
 ]
