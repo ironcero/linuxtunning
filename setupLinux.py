@@ -7,7 +7,7 @@ user = "ironcero"
 def setup_wallpaper():
     # Setup wallpaper
     wallpaper_path = "/home/" + user + "/wallpapers"
-    wallpaper_file_name = "fedoraWallpaper.png"
+    wallpaper_file_name = "resources/fedoraWallpaper.png"
     if not os.path.isdir(wallpaper_path):
         subprocess.call(["mkdir", wallpaper_path])
     if not os.path.isfile(wallpaper_path + "/" + wallpaper_file_name):
@@ -22,7 +22,7 @@ def setup_wallpaper():
 def setup_screenlock():
     # Setup wallpaper
     wallpaper_path = "/home/" + user + "/wallpapers"
-    wallpaper_file_name = "fedoraWallpaper.png"
+    wallpaper_file_name = "resources/fedoraWallpaper.png"
     if not os.path.isdir(wallpaper_path):
         subprocess.call(["mkdir", wallpaper_path])
     if not os.path.isfile(wallpaper_path + "/" + wallpaper_file_name):
@@ -41,7 +41,7 @@ def setup_maximize_buttons():
 
 
 def setup_title_height():
-    gtk_file_name = "gtk.css"
+    gtk_file_name = "resources/gtk.css"
     gtk_file_path = "/home/" + user + "/.config/gtk-3.0/"
     subprocess.call(["sudo", "-u", user, "cp", gtk_file_name, gtk_file_path + "/."])
     print("Title bar modified")

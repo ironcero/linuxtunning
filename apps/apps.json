@@ -1,0 +1,336 @@
+[
+  {
+    "name": "Snapd",
+    "description": "Snappy is a software deployment and package management system developed by Canonical for the Linux operating system.",
+    "software_check": "snapd",
+    "software": "snapd",
+    "type": "default",
+    "pre_commands": null,
+    "post_commands": [["ln", "-s", "/var/lib/snapd/snap", "/snap"]],
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": null,
+    "install_group": false
+  }, {
+    "name": "Git",
+    "description": "Git is a distributed version-control system for tracking changes in source code during software development.",
+    "software_check": "git",
+    "software": "git",
+    "type": "default",
+    "pre_commands": null,
+    "post_commands": null,
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": null,
+    "install_group": false
+  }, {
+    "name": "Pycharm",
+    "description": "PyCharm is an integrated development environment (IDE) used in computer programming, specifically for the Python language.",
+    "software_check": "pycharm-community",
+    "software": "pycharm-community",
+    "type": "snap",
+    "pre_commands": null,
+    "post_commands": null,
+    "url": null,
+    "extra_pre_argument": "--classic",
+    "extra_post_argument": null,
+    "install_group": false
+}, {
+    "name": "RabbitVCS",
+    "description": "RabbitVCS is a graphical front-end for version control systems available on Linux.",
+    "software_check": "rabbitvcs-cli",
+    "software": "rabbitvcs-cli",
+    "type": "default",
+    "pre_commands": null,
+    "post_commands": null,
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": null,
+    "install_group": false
+  }, {
+    "name": "RabbitVCS",
+    "description": "Nautilus extension for RabbitVCS",
+    "software_check": "rabbitvcs-nautilus",
+    "software": "rabbitvcs-nautilus",
+    "type": "default",
+    "pre_commands": null,
+    "post_commands": null,
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": null,
+    "install_group": false
+  }, {
+    "name": "Vim",
+    "description": "Vim is a clone, with additions, of Bill Joy's vi text editor program for Unix",
+    "software_check": "vim-enhanced",
+    "software": "vim",
+    "type": "default",
+    "pre_commands": null,
+    "post_commands": null,
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": null,
+    "install_group": false
+  },
+  {
+    "name": "Visual Studio Code",
+    "description": "Visual Studio Code is a source-code editor developed by Microsoft for Windows, Linux and macOS",
+    "software_check": "code",
+    "software": "code",
+    "type": "default",
+    "pre_commands": [
+      [
+        "rpm",
+        "--import",
+        "https://packages.microsoft.com/keys/microsoft.asc"
+      ],
+      [
+        "cp",
+        "vscode.repo",
+        "/etc/yum.repos.d/vscode.repo"
+      ],
+      [
+        "dnf",
+        "check-update"
+      ]
+    ],
+    "post_commands": null,
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": null,
+    "install_group": false
+  }, {
+    "name": "Chrome",
+    "description": "Google Chrome is a cross-platform web browser developed by Google",
+    "software_check": "google-chrome-stable",
+    "software": "google-chrome-stable",
+    "type": "default",
+    "pre_commands": [
+      [
+        "dnf",
+        "install",
+        "-y",
+        "fedora-workstation-repositories"
+      ],
+      [
+        "dnf",
+        "config-manager",
+        "--set-enabled",
+        "google-chrome"
+      ]
+    ],
+    "post_commands": null,
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": null,
+    "install_group": false
+  }, {
+    "name": "GitKraken",
+    "description": "GitKraken is an application for working with Git developed by Axosoft",
+    "software_check": "gitkraken",
+    "software": "/tmp/gitkraken-amd64.rpm",
+    "type": "yum",
+    "pre_commands": [
+      [
+        "wget",
+        "https://release.gitkraken.com/linux/gitkraken-amd64.rpm",
+        "-O",
+        "/tmp/gitkraken-amd64.rpm"
+      ]
+    ],
+    "post_commands": [
+      [
+        "rm",
+        "-f",
+        "/tmp/gitkraken-amd64.rpm"
+      ]
+    ],
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": null,
+    "install_group": false
+  }, {
+    "name": "Microsoft Teams",
+    "description": "Microsoft Teams is a unified communication and collaboration platform that combines persistent workplace chat, video meetings, file storage (including collaboration on files), and application integration",
+    "software_check": "teams-for-linux",
+    "software": "teams-for-linux",
+    "type": "snap",
+    "pre_commands": null,
+    "post_commands": null,
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": null,
+    "install_group": false
+  }, {
+    "name": "Microsoft OneNote",
+    "description": "Microsoft OneNote is a program for free-form information gathering and multi-user collaboration",
+    "software_check": "onenote-desktop",
+    "software": "onenote-desktop",
+    "type": "snap",
+    "pre_commands": null,
+    "post_commands": null,
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": "--beta",
+    "install_group": false
+  },{
+    "name": "MATE Desktop",
+    "description": "MATE is a desktop environment composed of free and open-source software that runs on Linux and BSD operating systems.",
+    "software_check": "mate-desktop",
+    "software": "mate-desktop",
+    "type": "default",
+    "pre_commands": null,
+    "post_commands": null,
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": "--allowerasing",
+    "install_group": true
+  },{
+    "name": "MATE Desktop Applications",
+    "description": "Applications for MATE Desktop.",
+    "software_check": "mate-desktop",
+    "software": "mate-applications",
+    "type": "default",
+    "pre_commands": null,
+    "post_commands": null,
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": "--allowerasing",
+    "install_group": true
+  },{
+    "name": "Spotify - Repositories",
+    "description": "RPM Fusion repositories",
+    "software_check": "rpmfusion-free-release-31-1.noarch",
+    "software": "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-31.noarch.rpm",
+    "type": "default",
+    "pre_commands": null,
+    "post_commands": null,
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": null,
+    "install_group": false
+  },{
+    "name": "Spotify - Repositories 2",
+    "description": "RPM Fusion repositories 2",
+    "software_check": "rpmfusion-nonfree-release-31-1.noarch",
+    "software": "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-31.noarch.rpm",
+    "type": "default",
+    "pre_commands": null,
+    "post_commands": null,
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": null,
+    "install_group": false
+  },{
+    "name": "Spotify",
+    "description": "Spotify Technology S.A. is an international media services provider of Swedish origin",
+    "software_check": "lpf-spotify-client",
+    "software": "lpf-spotify-client",
+    "type": "default",
+    "pre_commands": null,
+    "post_commands": null,
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": null,
+    "install_group": false
+  },{
+    "name": "SublimeText 3",
+    "description": "Sublime Text is a shareware cross-platform source code editor with a Python application programming interface (API)",
+    "software_check": "sublime-text",
+    "software": "sublime-text",
+    "type": "default",
+    "pre_commands": [
+      [
+        "rpm",
+        "-v",
+        "--import",
+        "https://download.sublimetext.com/sublimehq-rpm-pub.gpg"
+      ],[
+        "dnf",
+        "config-manager",
+        "--add-repo",
+        "https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo"
+      ]
+    ],
+    "post_commands": null,
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": null,
+    "install_group": false
+  },{
+    "name": "Docker Community docker-ce",
+    "description": "Docker is a set of platform as a service (PaaS) products that use OS-level virtualization to deliver software in packages called containers",
+    "software_check": "docker-ce",
+    "software": "docker-ce",
+    "type": "default",
+    "pre_commands": [
+      [
+        "dnf",
+        "-y",
+        "install",
+        "dnf-plugins-core"
+      ],[
+        "dnf",
+        "config-manager",
+        "--add-repo",
+        "https://download.docker.com/linux/fedora/docker-ce.repo"
+      ],[
+        "dnf",
+        "update"
+      ]
+    ],
+    "post_commands": null,
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": null,
+    "install_group": false
+  },{
+    "name": "Docker Community docker-ce-cli",
+    "description": "Docker is a set of platform as a service (PaaS) products that use OS-level virtualization to deliver software in packages called containers",
+    "software_check": "docker-ce-cli",
+    "software": "docker-ce-cli",
+    "type": "default",
+    "pre_commands": null,
+    "post_commands": null,
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": null,
+    "install_group": false
+  },{
+    "name": "Docker Community containerd.io",
+    "description": "Docker is a set of platform as a service (PaaS) products that use OS-level virtualization to deliver software in packages called containers",
+    "software_check": "containerd.io",
+    "software": "containerd.io",
+    "type": "default",
+    "pre_commands": null,
+    "post_commands": [
+      [
+        "systemctl",
+        "start",
+        "docker"
+      ],[
+        "groupadd",
+        "docker"
+      ],[
+        "usermod",
+        "-aG",
+        "docker",
+        "$USER"
+      ],[
+        "sudo",
+        "-u",
+        "$USER",
+        "newgrp",
+        "docker"
+      ],[
+        "systemctl",
+        "enable",
+        "docker"
+      ]
+    ],
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": null,
+    "install_group": false
+  }
+]
