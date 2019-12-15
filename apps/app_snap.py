@@ -8,15 +8,17 @@ installer_snap = "snap"
 installer_snap_arg_install = "install"
 
 check_installer = "snap"
-check_installer_arg_check = "info"
+check_installer_arg_check = "list"
+check_grep = "grep"
 
 
 def install_software_snap(name, description, software_check, software, pre_commands, post_commands,
                           software_extra_pre_argument, software_extra_post_argument):
     logging.debug("Checking %s is installed on system", name)
-    software_status = subprocess.call([check_installer, check_installer_arg_check, software_check], stdout=f_null,
-                                      stderr=subprocess.STDOUT)
-    if not software_status:
+
+    software_status = subprocess.getoutput("snap list | grep '" + software_check + "'")
+
+    if software_status:
         logging.info("%s is already installed", name)
     else:
         if pre_commands:
@@ -41,10 +43,9 @@ def install_software_snap(name, description, software_check, software, pre_comma
             install_status = subprocess.call([installer_snap, installer_snap_arg_install, software_extra_pre_argument,
                                               software, software_extra_post_argument])
 
-        software_status = subprocess.call([check_installer, check_installer_arg_check, software_check], stdout=f_null,
-                                          stderr=subprocess.STDOUT)
+        software_status = subprocess.getoutput("snap list | grep '" + software_check + "'")
 
-        if not software_status:
+        if software_status:
             logging.info("%s was installed successful", software)
             if post_commands:
                 logging.debug("Executing commands after installation of %s", name)

@@ -332,5 +332,41 @@
     "extra_pre_argument": null,
     "extra_post_argument": null,
     "install_group": false
+  },{
+    "name": "IntelliJ IDEA",
+    "description": "IntelliJ IDEA",
+    "software_check": "intellij-idea-community",
+    "software": "intellij-idea-community",
+    "type": "snap",
+    "pre_commands": null,
+    "post_commands": null,
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": "--classic",
+    "install_group": false
+  },{
+    "name": "Gnome Tweak Tool",
+    "description": "Gnome Tweak Tool",
+    "software_check": "gnome-tweak-tool",
+    "software": "gnome-tweak-tool",
+    "type": "default",
+    "pre_commands": null,
+    "post_commands": null,
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": null,
+    "install_group": false
+  },{
+    "name": "gdm-wallpaper",
+    "description": "gdm-wallpaper",
+    "software_check": "gdm-wallpaper",
+    "software": "gdm-wallpaper",
+    "type": "default",
+    "pre_commands": null,
+    "post_commands": null,
+    "url": null,
+    "extra_pre_argument": null,
+    "extra_post_argument": null,
+    "install_group": false
   }
 ]

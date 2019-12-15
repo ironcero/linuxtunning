@@ -1,26 +1,19 @@
 import os
 import json
-import app_dnf
-import app_yum
-import app_snap
-import app_manual
+from apps.app_dnf import update_software
+from apps.app_dnf import upgrade_software
+from apps.app_dnf import install_software
+from apps.app_yum import install_software_yum
+from apps.app_snap import install_software_snap
+from apps.app_manual import install_manual_software
 import logging
-import sys
-sys.path.insert(1, '../config')
-import settings
+#import sys
+#sys.path.insert(1, '../config')
+import config.settings
 
-appsFile = "apps.json"
-
-
+appsFile = "apps/apps.json"
 f_null = open(os.devnull, 'w')
-
-
-
-
 installer_text = "Status: install ok installed"
-
-
-
 
 
 def install(software_installation_type, name, description, software_check, software, pre_commands, post_commands,
@@ -28,15 +21,15 @@ def install(software_installation_type, name, description, software_check, softw
     result = 0
     logging.info("Installing %s over %s", name, software_installation_type)
     if software_installation_type == 'manual':
-        result = app_manual.install_manual_software(software, software_url)
+        result = install_manual_software(software, software_url)
     elif software_installation_type == 'snap':
-        result = app_snap.install_software_snap(name, description, software_check, software, pre_commands, post_commands,
+        result = install_software_snap(name, description, software_check, software, pre_commands, post_commands,
                                                software_extra_pre_argument, software_extra_post_argument)
     elif software_installation_type == 'yum':
-        result = app_yum.install_software_yum(name, description, software_check, software, pre_commands, post_commands,
+        result = install_software_yum(name, description, software_check, software, pre_commands, post_commands,
                                              software_extra_pre_argument, software_extra_post_argument)
     else:
-        result = app_dnf.install_software(name, description, software_check, software, pre_commands, post_commands,
+        result = install_software(name, description, software_check, software, pre_commands, post_commands,
                                          software_extra_pre_argument, software_extra_post_argument, install_group)
     return result
 
@@ -50,8 +43,8 @@ def install_apps():
     logging.debug("File %s get.", appsFile)
     applications = json.load(apps_file)
     logging.debug("File %s loaded on JSON format", appsFile)
-    app_dnf.update_software()
-    app_dnf.upgrade_software()
+    update_software()
+    upgrade_software()
     for app in applications:
         name = app["name"]
         description = app["description"]

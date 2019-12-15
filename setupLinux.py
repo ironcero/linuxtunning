@@ -7,11 +7,12 @@ user = "ironcero"
 def setup_wallpaper():
     # Setup wallpaper
     wallpaper_path = "/home/" + user + "/wallpapers"
-    wallpaper_file_name = "resources/fedoraWallpaper.png"
+    wallpaper_file_name = "fedoraWallpaper.png"
+    wallpaper_file_name_source = "resources/fedoraWallpaper.png"
     if not os.path.isdir(wallpaper_path):
         subprocess.call(["mkdir", wallpaper_path])
     if not os.path.isfile(wallpaper_path + "/" + wallpaper_file_name):
-        subprocess.call(["cp", wallpaper_file_name, wallpaper_path + "/."])
+        subprocess.call(["cp", wallpaper_file_name_source, wallpaper_path + "/."])
 
     subprocess.call(["gsettings", "set", "org.gnome.desktop.background", "picture-uri",
                                "file://" + wallpaper_path + "/" + wallpaper_file_name])
@@ -47,13 +48,25 @@ def setup_title_height():
     print("Title bar modified")
     print("Press 'ALT' + 'F2' and type 'R' + 'Enter'")
 
+def setup_background_login():
+    wallpaper_path = "/home/" + user + "/wallpapers"
+    wallpaper_file_name = "fedoraWallpaper.png"
+    wallpaper_file_name_source = "resources/fedoraWallpaper.png"
+    if not os.path.isdir(wallpaper_path):
+        subprocess.call(["mkdir", wallpaper_path])
+    if not os.path.isfile(wallpaper_path + "/" + wallpaper_file_name):
+        subprocess.call(["cp", wallpaper_file_name_source, wallpaper_path + "/."])
+    subprocess.call(["dnf", "copr", "enable", "zirix/gdm-wallpaper"])
+    subprocess.call(["set-gdm-wallpaper", wallpaper_path + "/" + wallpaper_file_name])
+
 
 def setup():
     print("Setting up linux system")
-    setup_wallpaper()
-    setup_screenlock()
-    setup_maximize_buttons()
-    setup_title_height()
+    #setup_wallpaper()
+    #setup_screenlock()
+    #setup_maximize_buttons()
+    #setup_title_height()
+    setup_background_login()
 
 
 setup()

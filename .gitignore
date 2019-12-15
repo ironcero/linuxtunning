@@ -2,3 +2,4 @@ config/secrets.json
 log/linux_tunning.log
 apps/__pycache__
 config/__pycache__
+__pycache__
