@@ -12,7 +12,7 @@ Scripts must setup look configuration and add new software. All configuration an
 	* On config folder you can find only one file for setup: logger\_config.yml which lets you to setup logging options. But you could add a custom file named secrets.json if you need to add credential information. For example: [{"name":"oracle-jdk", "user":"SOME\_USER", "password":"SOME\_PASSWORD"}]
 	* On apps folder you can find apps.json file. This file lets you change which application will be installed on your system. In further section you can find more information for this file.
 	* On base folder you can find setupLinux.py. This file will change as your system looks and feels. You could change this file if you want a another style on your system.
-2. After setup the scripts you could run it launching python tunningLinux.py on the base folder (on terminal).
+2. After that you could run it launching python tunningLinux.py on the base folder (on terminal).
 
 ## apps.json file
 apps.json file is the heard of configuration for these scripts. This file lets you add, remove of change which application will be installed on your system. 4 types of installation have been added: manual, snap, yum and dnf (by default). Then, if you want to add a new dnf application you will need to setup as dnf type.
@@ -64,5 +64,12 @@ Here you could find one sample:
 
 ## Logs
 
+You can find execution logs in linux\_tunning.log on log folder by default. You could change log configuration modifying log configuration file called logger\_config.yml on config folder.
+
 ## Linux version
 
+These scripts were developed and tested for Fedora Linux 31. For others Linux versions you must modify it.
+
+## Contributions
+
+Any contributions are welcome. You could add a new branch for another specify Linux distribution. 
